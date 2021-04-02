@@ -9,8 +9,9 @@ var createTaskHandler = function(event){
   var taskNameInput = document.querySelector("input[name='task-name']");
   
   var listItemEl = document.createElement("li");
+  
   listItemEl.className = "task-item";
-  listItemEl.textContent = taskNameInput;
+  listItemEl.textContent = taskNameInput.value;
   tasksToDoEl.appendChild(listItemEl);
 };
 
