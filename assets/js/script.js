@@ -7,8 +7,9 @@ var createTaskHandler = function(event){
   event.preventDefault();
 
   //the 'name' attribute is referenced from the index.html file (task-name & task-type)
-  var taskNameInput = document.querySelector("input[name='task-name']");  
-  var taskTypeInput = document.querySelector("select[name='task-type']");
+  //.value is added to the end so that the value will be displayed in the list
+  var taskNameInput = document.querySelector("input[name='task-name']").value;  
+  var taskTypeInput = document.querySelector("select[name='task-type']").value;
   
   //create list item
   var listItemEl = document.createElement("li");
@@ -19,14 +20,11 @@ var createTaskHandler = function(event){
   //give it a class name
   taskInfoEl.className = "task-info";
   //add HTML content to div
-  taskInfoEl.innerHTML = taskNameInput.value + taskTypeInput.value;
-  console.log(taskTypeInput);
+  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";
+ 
 
   listItemEl.appendChild(taskInfoEl);
-  //.value is added so that the task that is inputed is logged in the form
- 
   tasksToDoEl.appendChild(listItemEl);
-
 };
 
 formEl.addEventListener("submit", createTaskHandler);
