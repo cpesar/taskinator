@@ -49,8 +49,13 @@ var createTaskEl = function(taskDataObj){
    //add HTML content to div
    taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
 
+   var taskActionsEl = createTaskActions(taskIdCounter);
+
+   
+
    listItemEl.appendChild(taskInfoEl);
    tasksToDoEl.appendChild(listItemEl);
+   listItemEl.appendChild(taskActionsEl);
 
    //increase task counter for next unique id
    taskIdCounter++;
@@ -90,7 +95,7 @@ var createTaskActions = function(taskId) {
     //create option element
     var statusOptionEl = document.createElement("option");
     statusOptionEl.textContent = statusChoices[i];
-    statusOptionEl.setAttribute ("value", statusChoicesEl[i]);
+    statusOptionEl.setAttribute ("value", statusChoices[i]);
     //append to select
     statusSelectEl.appendChild(statusOptionEl);
   }
