@@ -17,9 +17,19 @@ var taskFormHandler = function(event){
     type: taskTypeInput
   };
 
+  //check if input values are empty strings, the !(not operator) will make the condition return true if the value evaluates as false. by using the condition we're checking if taskNameInput or taskTypeInput is empty or if both are empty
+  //if either one or both of the variables are NOT true, then proceed. this is the same as if either one or both of the variables are false, proceed
+if (!taskNameInput || !taskTypeInput) {
+  alert("You need to fill out the task form!");
+  return false;
+}
+
+  //add a reset function to clear the form input after the user enters something
+  formEl.reset();
+
   //send it as an argument to createTaskEl
   createTaskEl(taskDataObj);
-  
+
 };
 
 var createTaskEl = function(taskDataObj){
