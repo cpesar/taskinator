@@ -20,7 +20,7 @@ var taskFormHandler = function(event) {
   }
 
   document.querySelector("input[name='task-name']").value = "";
-  document.querySelector("select [name='task-type']").selectedIndex = 0;
+  document.querySelector("select[name='task-type']").selectedIndex = 0;
 
   var isEdit = formEl.hasAttribute("data-task-id");
   
@@ -61,7 +61,7 @@ var createTaskEl = function(taskDataObj)
    taskInfoEl.className = "task-info";
    //add HTML content to div
    taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
-   listItemEl.appendChild(taskActionsEl);
+   listItemEl.appendChild(taskInfoEl);
 
    var taskActionsEl = createTaskActions(taskIdCounter);
    listItemEl.appendChild(taskActionsEl);
